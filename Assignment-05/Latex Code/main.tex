@@ -1,0 +1,93 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{To find an element X in an array using divide and conquer algorithm\\
+{\footnotesize \textsuperscript {} Indian Institute of Information Technology, Allahabad}
+}
+
+\author{\IEEEauthorblockN{Aditya Aggarwal}
+\IEEEauthorblockA{\textit{iit2019210@iiita.ac.in}}
+\and
+\IEEEauthorblockN{Divy Agrawal}
+\IEEEauthorblockA{\textit{iit2019211@iiita.ac.in}}
+\and
+\IEEEauthorblockN{Aman Rubey}
+\IEEEauthorblockA{\textit{iit2019212@iiita.ac.in}}
+}
+
+\maketitle
+
+\begin{abstract}
+ In this paper we have devised an algorithm to find an element X in an array of given elements solely using the concept of divide and conquer. Also in the later part of the paper we have discussed the space and time complexity of the devised algorithm.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Algorithm, Divide and Conquer, Searching, complexity
+\end{IEEEkeywords}
+
+\section{Introduction}
+Divide and conquer algorithm is an efficient algorithm that decompose a given problem into small sub-problems recursively until it is relatively easier to solve those small sub-problems. Then the solution to the original problem is computed by combining the solutions to the sub-problems. Implementation of this algorithm could be seen in sorting algorithms such as merge-sort and quick-sort. 
+
+\section{Algorithm Design}
+We have taken elements (Integer) as input from user and stored them in a vector. We will be using this vector to check whether an element X is present in this vector.
+
+An important concept used in this algorithm is that if vector contains a singleton element only and if this element is equal to the required element X the answer would be true else it would be false.
+% \vspace{5pt}
+% \hrule height 0.4pt depth 1pt width 250pt \relax
+% \vspace{5pt}
+% jfsdkfjsfsmlfmjsfjksfs
+% \\
+% \hrule height 0.4pt depth 1pt width 250pt \relax
+
+\begin{itemize}
+\item Here the main problem is to check whether an element is present in a vector or not.
+\item This main problem could be divided into two sub-problems by dividing this initial vector (parent vector) into two vectors (child vectors) of approximately same size and checking whether the required element is present in these two vectors formed(child vectors).
+\item We will divide these new sub-vectors formed until the new vectors comprise of singleton element only.
+\item As discussed earlier in this section, answer for these vectors comprising of single elements will be either true or false depending on whether this single element is equal to required element or not.
+\item Suppose, we know that whether the required element X is present in two vectors or not. Then the answer to the problem-vector comprising of the elements of both the vectors simply depends upon the answer for the two child vectors.
+\begin{itemize}
+    \item If element is present in either or in both of the child vectors then the element will be present in the parent vector comprising of these two child vectors.
+    \item If element is not present in both of the child vectors then the element will not be present in the parent vector comprising of these two child vectors.
+\end{itemize}
+\item Similarly, we will be checking whether the required element is present in all of the sub-vectors (child vectors) previously created or not. And, this then would be used to compute whether element is present in the parent vector or not.
+\end{itemize}
+
+These 6 steps of the algorithm would become more clear by the following example:
+\begin{enumerate}
+    \item Example 1
+    \begin{itemize}
+    \item Consider a vector V.
+    \begin{center}
+        V $\equiv$ \{34, 4, 56, 999\}
+    \end{center}
+    We want to check whether the element X=999 is present or not in this vector using divide and conquer.
+    \item We will now divide this vector V into two sub-vectors V\textsubscript{1} and V\textsubscript{2} which is equivalent to dividing problem-1 into two sub-problems problem-1a and problem-1b.
+    \begin{center}
+        V\textsubscript{1} $\equiv$ \{34, 4\}\\
+        V\textsubscript{2} $\equiv$ \{56, 999\}
+    \end{center}
+    Now we will check whether X is present in these sub-problems formed or not.
+    \item We will now divide vector V\textsubscript{1} into two sub-vectors V\textsubscript{11} and V\textsubscript{12} which is equivalent to dividing problem-1a further into two sub-problems problem-1a1 and problem-1a2.
+    \begin{center}
+        V\textsubscript{11} $\equiv$ \{34\}\\
+        V\textsubscript{12} $\equiv$ \{4\}
+    \end{center}
+    Similarly, we will now divide vector V\textsubscript{2} into two sub-vectors V\textsubscript{21} and V\textsubscript{22} which is equivalent to dividing problem-1b further into two sub-problems problem-1b1 and problem-1b2.
+    \begin{center}
+        V\textsubscript{21} $\equiv$ \{56\}\\
+        V\textsubscript{22} $\equiv$ \{999\}
+    \end{center}
+    Now we will check whether X is present in these sub-problems formed or not.
+    \end{itemize}
+\end{enumerate}
+\end{document}
