@@ -2,16 +2,24 @@
 \IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage{cite}
-\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{To find an element X in an array using divide and conquer algorithm\\
+\title{To check whether an element X is present in an array or not using Divide and Conquer Algorithm\\
 {\footnotesize \textsuperscript {} Indian Institute of Information Technology, Allahabad}
 }
 
@@ -163,4 +171,45 @@ Therefore, upon applying master’s theorem we get,
 \begin{equation}
     T(N) = O(N)
 \end{equation}
+\subsection{Auxiliary Space-Complexity}
+Let N denote the number of elements in the vector in which we have to check whether the required element is present or not.
+
+The function solve(low,high) is being called approximately 2N-1 times that is O(N) times and each time when it is called 3 variables of size 4 bytes is created.
+Therefore, Auxiliary Space-Complexity will be,
+\begin{equation}
+    T(N) = O(N)
+\end{equation}
+\section{Theortical complexity analysis}
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=9cm]{Time.png}}
+\caption{Time–Complexity Graph (O(N))}
+\label{fig}
+\end{figure}
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=9cm]{Space.png}}
+\caption{Auxiliary Space–Complexity Graph (O(N))}
+\label{fig}
+\end{figure}
+\section{Advantages Against Linear uni-processor Search}
+\begin{enumerate}
+    \item \ \ \ In the computer systems containing a single processor the execution of processes tends to be slow as a single process hogs the CPU till it's cycle is complete or execution of the process stops. So, OS generally implements multi-threading by itself at the software level without kernel knowing about it.\\
+
+\ \ \ \ So in a Linear Uni-processor Search, the process of checking whether the element is present or not will be taking several CPU cycles before the we finally get the answer. In this the whole process we be running on a single main thread because of which it will become slow as the number of elements to search from increases.\\
+
+\ \ \ \ But in Divide and Conquer Algorithm the main-task is divided into sub-tasks which are completely independent of each other. So, these independent sub-tasks could be executed using threads which are basically light-weight processes needing relatively less context switching time then that required for context switching of a process. These, solution to the sub-problems executed using threads could be used to compute the solution to other sub-problems depending upon these on a separate thread.\\
+
+\ \ \ \ Because of this, when the number of inputs becomes very large Divide and Conquer Algorithm executes faster than Linear Uni-processor Search despite of the fact that both the algorithms have same time complexity. When the number of inputs are low the time of execution is same for both.\\
+\item \ \ \ Another advantage of Divide and Conquer Algorithm is the use of memory caches efficiently as when the sub problems becomes very simple, they can be solved within the cache, without having to access the slower main memory(Cache is second fastest accessible memory after Registers), which saves a lot of time and makes the algorithm more efficient. And in some cases, it can even produce more precise outcomes in computations with rounded arithmetic than iterative methods would.
+\end{enumerate}
+
+\section{Conclusion}
+Therefore, using the concept of divide and conquer we have devised an algorithm to check whether an element is present in a vector of elements or not. The time complexity of the above devised algorithm is O(N) where as auxiliary space complexity is O(N) where N is number of elements given by the user.\\
+\begin{thebibliography}{00}
+\bibitem{b1}Introduction to Algorithms 3rd Edition by Clifford Stein, Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest
+\bibitem{b2} Algorithm Design by J Kleinberg and E Tardos
+\bibitem{b3} Abraham Silberschatz Peter B. Galvin and Greg Gagne, Operating System Concepts, Wiley 8th Edition, 2008
+\bibitem{b4} \href{https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm}{Divide and Conquer}
+\bibitem{b5}\href{https://stackoverflow.com/questions/11032015/how-to-find-time-complexity-of-an-algorithm}{Complexity Analysis}
+\bibitem{b6}\href{http://www.csun.edu/~mam78887/MAMANLEY.pdf}{Divide and Conquer Paradigm}
+\end{thebibliography}
 \end{document}
