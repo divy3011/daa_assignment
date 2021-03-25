@@ -63,31 +63,104 @@ An important concept used in this algorithm is that if vector contains a singlet
 \end{itemize}
 
 These 6 steps of the algorithm would become more clear by the following example:
+\begin{itemize}
+\item Consider a vector V.
+\begin{center}
+    V $\equiv$ \{34, 4, 56, 999\}
+\end{center}
+We want to check whether the element X=999 is present or not in this vector using divide and conquer.
+\item We will now divide this vector V into two sub-vectors V\textsubscript{1} and V\textsubscript{2} which is equivalent to dividing problem-1 into two sub-problems problem-1a and problem-1b.
+\begin{center}
+    V\textsubscript{1} $\equiv$ \{34, 4\}\\
+    V\textsubscript{2} $\equiv$ \{56, 999\}
+\end{center}
+Now we will check whether X is present in these sub-problems formed or not.
+\item We will now divide vector V\textsubscript{1} into two sub-vectors V\textsubscript{11} and V\textsubscript{12} which is equivalent to dividing problem-1a further into two sub-problems problem-1a1 and problem-1a2.
+\begin{center}
+    V\textsubscript{11} $\equiv$ \{34\}\\
+    V\textsubscript{12} $\equiv$ \{4\}
+\end{center}
+Similarly, we will now divide vector V\textsubscript{2} into two sub-vectors V\textsubscript{21} and V\textsubscript{22} which is equivalent to dividing problem-1b further into two sub-problems problem-1b1 and problem-1b2.
+\begin{center}
+    V\textsubscript{11} $\equiv$ \{56\}\\
+    V\textsubscript{12} $\equiv$ \{999\}
+\end{center}
+Now we will check whether X is present in these sub-problems formed or not.
+\item As discussed earlier, solutions to the sub-problems problem-1a1, problem-1a2, problem-1b1, problem-1b2 will be either true or false depending upon whether these singleton element is equal to required element or not.\\ Therefore, solution to these sub-problems will be:
 \begin{enumerate}
-    \item Example 1
-    \begin{itemize}
-    \item Consider a vector V.
-    \begin{center}
-        V $\equiv$ \{34, 4, 56, 999\}
-    \end{center}
-    We want to check whether the element X=999 is present or not in this vector using divide and conquer.
-    \item We will now divide this vector V into two sub-vectors V\textsubscript{1} and V\textsubscript{2} which is equivalent to dividing problem-1 into two sub-problems problem-1a and problem-1b.
-    \begin{center}
-        V\textsubscript{1} $\equiv$ \{34, 4\}\\
-        V\textsubscript{2} $\equiv$ \{56, 999\}
-    \end{center}
-    Now we will check whether X is present in these sub-problems formed or not.
-    \item We will now divide vector V\textsubscript{1} into two sub-vectors V\textsubscript{11} and V\textsubscript{12} which is equivalent to dividing problem-1a further into two sub-problems problem-1a1 and problem-1a2.
-    \begin{center}
-        V\textsubscript{11} $\equiv$ \{34\}\\
-        V\textsubscript{12} $\equiv$ \{4\}
-    \end{center}
-    Similarly, we will now divide vector V\textsubscript{2} into two sub-vectors V\textsubscript{21} and V\textsubscript{22} which is equivalent to dividing problem-1b further into two sub-problems problem-1b1 and problem-1b2.
-    \begin{center}
-        V\textsubscript{21} $\equiv$ \{56\}\\
-        V\textsubscript{22} $\equiv$ \{999\}
-    \end{center}
-    Now we will check whether X is present in these sub-problems formed or not.
-    \end{itemize}
+    \setlength{\itemindent}{1em}
+    \item Problem-1a1 is false as 34 is not equal to 999.
+    \item Problem-1a2 is false as 4 is not equal to 999.
+    \item Problem-1b1 is false as 56 is not equal to 999.
+    \item Problem-1b2 is true as 999 is equal to 999.
 \end{enumerate}
+This now will be used to compute solution for the sub-problems problem-1a and problem-1b.
+\item Solution to the sub-problem problem-1a will be false as solution to the sub-problems problem-1a1 and problem-1a2 is false. This means that 999 is not present in the vector V\textsubscript{1} which is true.\\
+Solution to the sub-problem problem-1b will be true as solution to the sub-problem problem-1b2 is true despite of solution to problem-1b1 is false. This means that 999 is present in the vector V\textsubscript{2} which is true.\\
+Therefore, solution to these sub-problems will be:
+\begin{enumerate}
+    \setlength{\itemindent}{1em}
+    \item Problem-1a is false.
+    \item Problem-1b is true.
+\end{enumerate}
+This now will be used to compute solution for the main-problem, problem-1.
+\item Solution to the main-problem problem-1 will be true as solution to the sub-problem problem-1b is true despite of solution to problem-1a is false. This means that 999 is present in the vector V which is true.\\Thus, the required element 999 is present in the vector V (main-problem).
+\end{itemize}
+
+These above 6 steps of the example clearly show how we have used divide and conquer algorithm i.e., we firstly divided the main-problem into small sub-problems until they we were able to solve them directly. Then we computed the answer for these sub-problems and used these answers to compute answer for the main-problem.
+\\
+\section{Pseudo Code}
+\vspace{5pt}
+\hrule height 0.4pt depth 1pt width 250pt \relax
+\vspace{5pt}
+\textbf{Algorithm using Divide and Conquer}
+\vspace{5pt}
+\hrule height 0.4pt depth 1pt width 250pt \relax
+\vspace{5pt}
+\textbf{\textit{Global Variables:}}\\
+\hspace*{6mm} vector\langle int\rangle v;\\
+\hspace*{7mm} int\ n;\\
+\hspace*{7mm} int\ x;\\
+\\
+\hspace*{4mm}\textbf{\textit{function}}\ main()\\
+\hspace*{7mm}Get\ n;\\
+\hspace*{7mm}Get\ n\ elements\ and\ store\ them\ in\ a\ vector;\\
+\hspace*{7mm}solution\ \leftarrow\ solve(0,n-1);\\
+\hspace*{7mm}print\ solution;\\
+\hspace*{7mm}return\ 0;\\
+\\
+\hspace*{4mm}\textbf{\textit{function}}\ solve(low, high)\\
+\hspace*{7mm}if\ low\ ==\ high\ then\\
+\hspace*{10mm}if\ v[low]\ ==\ x\ then\\
+\hspace*{13mm}return\ true;\\
+\hspace*{10mm}else\\
+\hspace*{13mm}return\ false\\
+\hspace*{7mm}mid\ \leftarrow\ low+(high-low)/2\\
+\hspace*{7mm}return\ (solve(low,\ mid)\ OR\ solve(mid+1,\ high))\\
+\vspace{5pt}
+\hrule height 0.4pt depth 1pt width 250pt \relax
+\vspace{5pt}
+\section{Complexity Analysis}
+In the next two sub-sections we analyse the time and space complexity of algorithm we devised for the given problem.
+\subsection{Time-Complexity}
+Let N denote the number of elements in the vector in which we have to check whether the required element is present or not.\\
+\begin{figure}[htbp]
+\centerline{\includegraphics{image20.jpg}}
+\caption{Problem Dividing in Divide and Conquer}
+\label{fig}
+\end{figure}\\
+
+Taking  the reference of the above tree, where root node denotes  the main-problem and rest nodes denote the sub-problems formed from the main-problem. Suppose if the time-complexity of the problem consisting of N elements is T(N) then the time-complexity of sub-problems of this problem will be T(N/2) approximately and let time-complexity for executing rest statements be C\textsubscript{1}.\\
+Then,\\
+\begin{equation}
+    T(N) = 2T(N/2) + C\textsubscript{1}
+\end{equation}
+which is equivalent to,
+\begin{equation}
+    T(N) = 2T(N/2) + \Theta(1)
+\end{equation}
+Therefore, upon applying master’s theorem we get,
+\begin{equation}
+    T(N) = O(N)
+\end{equation}
 \end{document}
