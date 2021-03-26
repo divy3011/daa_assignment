@@ -1,5 +1,5 @@
 # DAA
-# Assignment 1
+# Assignment 5
 **Team Members**
 | Enrollment No. | Name            | Github-Id   |
 | :---:          |      :----:     |        :---:|
@@ -7,9 +7,11 @@
 | IIT2019211     | `Divy Agrawal`  | divy3011    |
 | IIT2019212     | `Aman Rubey`    | amanrubey   |
 
-**Group No ---** 11
-**Faculty Name --- **Rahul Kala Sir
-**Mentor Name --- **Md. Meraz Sir
+**Group No ---** 9
+
+**Faculty Name ---** Rahul Kala Sir
+
+**Mentor Name ---** Md. Meraz Sir
 
 
 ***
