@@ -104,4 +104,61 @@ After performing the above steps the Tree obtained will be a MST.
 \hspace*{10mm}endfor\\
 \hspace*{7mm}endfor\\
 \hspace*{7mm}return\ min\_spanning\_tree\\
+\\
+\hspace*{4mm}\textbf{\textit{function}}\ getMinWeight(min\_weight,\ flag)\\
+\hspace*{7mm}Find\ the\ vertex\ not\ visited\ yet\\
+\hspace*{7mm}and\ having\ minimum\ value\ in\ min\_weight\\
+\hspace*{7mm}return\ vertex\\
+\vspace{5pt}
+\hrule height 0.4pt depth 1pt width 250pt \relax
+\vspace{5pt}
+\section{Complexity Analysis}
+In the next two sub-sections we analyse the time and space complexity of algorithm we devised for the given problem.
+\subsection{Time-Complexity}
+Let V denote the number of vertices in the given graph whose MST we have to find.\\
+Taking  the reference of the above Pseudo Code, the outer for loop of the Prim\_Min\_spanning\_Tree function is running V times and the getMinWeight function is also running V times. Similarly the Inner for loop is also running V times.\\
+Therefore,\\
+\begin{equation}
+    T(V) = O(V*(V+V)) + C\textsubscript{1}
+\end{equation}
+which is equivalent to,
+\begin{equation}
+    T(V) = O(2V\textsuperscript{2}) + \Theta(1)
+\end{equation}
+which is in turn equivalent to,
+\begin{equation}
+    T(V) = O(V\textsuperscript{2})
+\end{equation}
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=8cm]{Time.png}}
+\caption{Time–Complexity Graph (O(V\textsuperscript{2}))}
+\label{fig}
+\end{figure}
+\\
+\subsection{Auxiliary Space-Complexity}
+Let V denote the number of vertices in the given graph whose MST we have to find.\\
+Taking  the reference of the above Pseudo Code, we have created three vectors of size V mainly min\_weight, flag, min\_spanning\_tree.\\
+Therefore,\\
+\begin{equation}
+    S(V) = O(3*V) + C\textsubscript{1}
+\end{equation}
+which is equivalent to,
+\begin{equation}
+    S(V) = O(V)
+\end{equation}
+\\
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=8cm]{Space.png}}
+\caption{Auxiliary Space–Complexity Graph (O(V))}
+\label{fig}
+\end{figure}
+\section{Conclusion}
+Therefore, using the concept of Prim's Algorithm we can find the Minimum Spanning Tree of a given graph in O(V\textsuperscript{2}) time and O(V) auxiliary space.\\
+\begin{thebibliography}{00}
+\bibitem{b1}Introduction to Algorithms 3rd Edition by Clifford Stein, Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest
+\bibitem{b2} Algorithm Design by J Kleinberg and E Tardos
+\bibitem{b3}\href{https://en.wikipedia.org/wiki/Prim\%27s_algorithm}{Prim's Algorithm}
+\bibitem{b4}\href{https://stackoverflow.com/questions/11032015/how-to-find-time-complexity-of-an-algorithm}{Complexity Analysis}
+\bibitem{b5}\href{https://www.overleaf.com/latex/templates/ieee-conference-template-example/nsncsyjfmpxy}{IEEE Paper}
+\end{thebibliography}
 \end{document}
