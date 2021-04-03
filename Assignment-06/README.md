@@ -103,7 +103,7 @@ Therefore, by using Master's Theorem
     T(V) = O(V^2)
 ```
 <figure style="text-align: center;">
-  <img src="./Assignment-06/Latex_Code/Time.png" alt="Time-Complexity Graph"/>
+  <img src="./Latex_Code/Time.png" alt="Time-Complexity Graph"/>
 </figure>
 
 
@@ -117,7 +117,7 @@ Therefore,
     T(V) = O(V)
 ```
 <figure style="text-align: center;">
-  <img src="./Assignment-06/Latex_Code/Space.png" alt="Space-Complexity Graph"/>
+  <img src="./Latex_Code/Space.png" alt="Space-Complexity Graph"/>
 </figure>
 
 
