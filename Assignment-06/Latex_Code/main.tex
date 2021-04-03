@@ -51,5 +51,57 @@ We have been given a weighted graph by the user whose MST(minimum spanning tree)
 \begin{enumerate}
 \item Create a boolean flag array(initialized to false) which has size as number of vertices which will be used to track that which vertex is taken for MST and which not.
 \item Create another vector namely, ‘min\_weight’ of same size where we will store the weight of the minimum weighted edge its connected to, such that the other endpoint of the edge is already taken in flag array.
+\item Consider any vertex as the starting node and so flag[start\_node] will be made true as starting node is included in MST and also min\_weight for it will 0.
+\item Now, iterate for (vertices-1) times and in every iteration follow next steps:
+\begin{enumerate}
+    \item Get the the minimum weighted index or (u).
+    \item A minimum weighted index is that index for which the corresponding vertex is not taken and also it has minimum key in the min\_weight vector.
+    \item Include u to flag array.
+    \item For every v in V update the min\_weight , where V is set of all vertices for which graph(u, v)>0.
+    \item To update min\_weight for ‘v’: if graph(u,v)\ <\ min\_weight[v] then min\_weight[v]=graph(u,v)
+    \item Here graph is a vector which is used to store the original graph in the form of adjacency matrix.
 \end{enumerate}
+\end{enumerate}
+After performing the above steps the Tree obtained will be a MST.
+\section{Pseudo Code}
+\vspace{5pt}
+\hrule height 0.4pt depth 1pt width 250pt \relax
+\vspace{5pt}
+\textbf{MST using Prim's Algorithm}
+\vspace{5pt}
+\hrule height 0.4pt depth 1pt width 250pt \relax
+\vspace{5pt}
+\textbf{\textit{Global Variables:}}\\
+\hspace*{7mm} int\ vertices;\\
+\\
+\hspace*{4mm}\textbf{\textit{function}}\ main()\\
+\hspace*{7mm}Get\ number\ of\ vertices;\\
+\hspace*{7mm}Get\ the\ edges\ in\ form\ of\ u\ v\ weight(u,v);\\
+\hspace*{7mm}store\ the\ edges\ in form\ adjacency\ matrix;\\
+\hspace*{7mm}graph[u-1][v-1]\ \leftarrow\ weight;\\
+\hspace*{7mm}graph[v-1][u-1]\ \leftarrow\ weight;\\
+\hspace*{7mm}call\ Prim\_Min\_spanning\_Tree\ function;\\
+\hspace*{7mm}return\ 0;\\
+\\
+\hspace*{4mm}\textbf{\textit{function}}\ Prim\_Min\_spanning\_Tree(adjacency\ matrix\ graph)\\
+\hspace*{7mm}Define\ vector\ of\ int\ min\_spanning\_tree(vertices)\\
+\hspace*{7mm}Define\ vector\ of\ int\ min\_weight(vertices)\\
+\hspace*{7mm}Define\ vector\ of\ bool\ flag(vertices)\\
+\hspace*{7mm}As\ there\ will\ be\ no\ edges\ in\ MST\ so\\
+\hspace*{7mm}min\_weight\ will\ be\ initialized\ as\ INT\_MAX\\
+\hspace*{7mm}flag\ will\ be\ initialized\ as\ false\\
+\hspace*{7mm}min\_weight[0]\ \leftarrow\ 0\\
+\hspace*{7mm}min\_spanning\_tree[0]\ \leftarrow -1\\
+\hspace*{7mm}for(int\ i=0;\ i<vertices-1;\ i++)\\
+\hspace*{10mm}int\ u\ =\ getMinWeight(min\_weight,\ flag);\\
+\hspace*{10mm}flag[u]\ =\ true;\\
+\hspace*{10mm}for(int\ v=0;\ v<vertices;\ v++)\\
+\hspace*{13mm}if\ (graph[u][v]\ and\ flag[v]\ ==\ false\\
+\hspace*{17mm}and\ graph[u][v]\ <\ min\_weight[v])\\
+\hspace*{16mm}min\_spanning\_tree[v]\ =\ u;\\
+\hspace*{16mm}min\_weight[v]\ =\ graph[u][v];\\
+\hspace*{13mm}endif\\
+\hspace*{10mm}endfor\\
+\hspace*{7mm}endfor\\
+\hspace*{7mm}return\ min\_spanning\_tree\\
 \end{document}
