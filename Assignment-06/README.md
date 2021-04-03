@@ -8,8 +8,10 @@
 | IIT2019212     | `Aman Rubey`    | amanrubey   |
 
 **Group No ---** 9
-**Faculty Name --- **Rahul Kala Sir
-**Mentor Name --- **Md. Meraz Sir
+
+**Faculty Name ---** Rahul Kala Sir
+
+**Mentor Name ---** Md. Meraz Sir
 
 
 ***
