@@ -63,7 +63,7 @@ Out:
 ---
 
 ## INTRODUCTION
-We can multiply two matrices using a simple divide and conquer approach, which gives the time complexity = O(N^3), but here, we will use Strassen’s algorithm. Strassen’s algorithm is basically a divide and conquer approach only but the difference is in the number of recursive calls. 
+Divide and conquer algorithm is an efficient algorithm that decompose a given problem into small sub-problems recursively until it is relatively easier to solve those small sub-problems. Then the solution to the original problem is computed by combining the solutions to the sub-problems. We will be using this to devise algorithm for our problem. 
 
 
 
