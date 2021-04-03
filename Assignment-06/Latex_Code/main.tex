@@ -1,0 +1,55 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{To find Minimum Spanning Tree using Prim's Algorithm\\
+{\footnotesize \textsuperscript {} Indian Institute of Information Technology, Allahabad}
+}
+
+\author{\IEEEauthorblockN{Aditya Aggarwal}
+\IEEEauthorblockA{\textit{iit2019210@iiita.ac.in}}
+\and
+\IEEEauthorblockN{Divy Agrawal}
+\IEEEauthorblockA{\textit{iit2019211@iiita.ac.in}}
+\and
+\IEEEauthorblockN{Aman Rubey}
+\IEEEauthorblockA{\textit{iit2019212@iiita.ac.in}}
+}
+
+\maketitle
+
+\begin{abstract}
+ In this paper we will use Prim's Algorithm to find the Minimum Spanning Tree. Also in the later part of the paper we have discussed the space and time complexity of the devised algorithm.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Algorithm, Graph's, Minimum Spanning Tree, Prim's Algorithm, Complexity
+\end{IEEEkeywords}
+
+\section{Introduction}
+Prim's algorithm is a greedy algorithm that finds a minimum spanning tree for a weighted undirected graph. This means it finds a subset of the edges that forms a tree that includes every vertex, where the total weight of all the edges in the tree is minimized. 
+
+\section{Algorithm Design}
+We have been given a weighted graph by the user whose MST(minimum spanning tree) we have to find. The following steps will help us to find the MST for a given graph.
+\begin{enumerate}
+\item Create a boolean flag array(initialized to false) which has size as number of vertices which will be used to track that which vertex is taken for MST and which not.
+\item Create another vector namely, ‘min\_weight’ of same size where we will store the weight of the minimum weighted edge its connected to, such that the other endpoint of the edge is already taken in flag array.
+\end{enumerate}
+\end{document}
