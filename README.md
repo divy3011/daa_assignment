@@ -9,9 +9,9 @@
 
 **Group No ---** 9
 
-**Faculty Name --- **Rahul Kala Sir
+**Faculty Name ---** Rahul Kala Sir
 
-**Mentor Name --- **Md. Meraz Sir
+**Mentor Name ---** Md. Meraz Sir
 
 
 ***
