@@ -16,7 +16,7 @@
 
 ***
 
-## This is the readme.md file for our Assignment-06
+## This is the readme.md file for our Assignment 06
 ---
 ## Problem Statement
 Find Minimum Spanning Tree of a given graph using Prim's Algorithm.
